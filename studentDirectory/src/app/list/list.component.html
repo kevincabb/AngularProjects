@@ -1,0 +1,5 @@
+<div class="list-group">
+    <a *ngFor="let student of students" (click)="studentClicked(student)" class="list-group-item list-group-item-action active">
+        {{student.fName}} {{student.lName}}
+    </a>
+</div>
