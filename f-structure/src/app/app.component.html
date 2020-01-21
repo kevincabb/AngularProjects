@@ -1,0 +1,3 @@
+<h1 *ngIf="testing">{{message}}</h1>
+<app-landing (childEvent)="message= $event" [parentData]="inputTest"></app-landing>
+<router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-2" *ngFor="let item of items">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{item}}</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <app-button btnLabel="+" (clickButton)="addToCard()"></app-button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <app-card-count></app-card-count>
+    <app-card-list></app-card-list>
+    <app-button btnLabel=" Reset Count" (clickButton)="reset()"></app-button>
+
+    <h2>{{parentData}}</h2>
+    <app-button btnLabel="Send Event" (click)="fireEvent()"></app-button>
+</div>
+
