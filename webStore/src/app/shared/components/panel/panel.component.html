@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row pt-3">
+        <div class="col light-border">
+            <p-scrollPanel [style]="{width: '100%', height: '52vh'}">
+               <div *ngFor="let item of stuff">
+                   <img src={{item.images}}/>
+                   <h1>{{item.type}}</h1>
+                   <h1>{{item.name}}</h1>
+                   <h1>{{item.buy}}</h1>
+                   <h1>${{item.price}}</h1>
+               </div>
+            </p-scrollPanel>
+        </div>
+    </div>
+</div>

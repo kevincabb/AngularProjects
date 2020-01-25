@@ -1,2 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Volkhov&display=swap');
+
+body{
+    background-color: #393233;
+    height: 100vh;
+}
+
+hr{
+    width: 400px;
+    border-top: 2px solid;
+}
+
+.tan-color{
+    color: #F0EAEA;
+}
+
+.darkGray{
+    background-color: #B4B4B4;
+}
+
+.page-text{
+    font-family: 'Volkhov', serif;
+}
+
+.black-text{
+    color: black;
+}
+
+.active, a:hover {
+    color: white;
+}
+
+.custom .ui-scrollpanel-wrapper {
+    border-right: 9px solid #f4f4f4; 
+}
+
+.light-border{
+    border: 2px solid #F0EAEA;
+}
+
+

@@ -1,0 +1,18 @@
+<p-sidebar [(visible)]="display" styleClass="ui-sidebar-sm">
+    <ul class="list-group ">
+        <li class="list-group-item">
+            <a class="nav-link page-text" routerLink="/app-home" routerLinkActive="active">APPAREL</a>
+        </li>
+        <li class="list-group-item">
+            <a class="nav-link black-text page-text" routerLink="" routerLinkActive="active">SHOES</a>
+        </li>
+        <li class="list-group-item">
+            <a class="nav-link black-text page-text" routerLink="" routerLinkActive="active">MISC</a>
+        </li>
+        <li class="list-group-item">
+            <a class="nav-link black-text page-text" routerLink="/" routerLinkActive="active">ALL</a>
+        </li>
+    </ul>
+</p-sidebar>
+
+<button class="darkGray page-text" type="text" (click)="display = true" pButton icon="pi pi-plus" label="Show">CATEGORIES</button>
