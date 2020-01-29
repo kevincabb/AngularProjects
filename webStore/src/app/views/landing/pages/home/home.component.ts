@@ -7,6 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public titleName = "CABS.CLOSET";
+  public showTitle = true;
+  public category = [
+    {
+      name: "APPAREL"
+    },
+    {
+      name: "SHOES"
+    },
+    {
+      name: "MISC"
+    },
+    {
+      name: "ALL"
+    }
+  ];
   public items = [
     {
       images: 'webStore/src/app/shared/images/hoody.png',

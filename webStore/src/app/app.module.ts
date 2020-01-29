@@ -26,6 +26,13 @@ import { AccountHeaderComponent } from './views/landing/components/account-heade
 import { OrdersComponent } from './views/landing/pages/orders/orders.component';
 import { ProfileComponent } from './views/landing/pages/profile/profile.component';
 import { AccountSettingsComponent } from './views/landing/pages/account-settings/account-settings.component';
+import { SettingAddressesComponent } from './views/landing/pages/setting-addresses/setting-addresses.component';
+import { SettingInformationComponent } from './views/landing/pages/setting-information/setting-information.component';
+import { SettingPaymentComponent } from './views/landing/pages/setting-payment/setting-payment.component';
+import { CartCheckoutComponent } from './views/landing/pages/cart-checkout/cart-checkout.component';
+import { CartPlaceComponent } from './views/landing/pages/cart-place/cart-place.component';
+import { CartHomeComponent } from './views/landing/pages/cart-home/cart-home.component';
+import { CartConfirmComponent } from './views/landing/pages/cart-confirm/cart-confirm.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +54,13 @@ import { AccountSettingsComponent } from './views/landing/pages/account-settings
     OrdersComponent,
     ProfileComponent,
     AccountSettingsComponent,
+    SettingAddressesComponent,
+    SettingInformationComponent,
+    SettingPaymentComponent,
+    CartCheckoutComponent,
+    CartPlaceComponent,
+    CartHomeComponent,
+    CartConfirmComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-settings.component.scss']
 })
 export class AccountSettingsComponent implements OnInit {
-  public accountMenu = ["INFORMATION", "ADDRESSES", "PAYMENT OPTIONS"];
+  public showTitle = false;
+  public category = [
+    {
+      name: "INFORMATION",
+      route: '/app-account/app-account-settings/app-setting-information'
+    },
+    {
+      name: "ADDRESSES",
+      route: '/app-account/app-account-settings/app-setting-addresses'
+    },
+    {
+      name: "PAYMENT OPTIONS",
+      route: '/app-account/app-account-settings/app-setting-payment'
+    },
+  ];
   constructor() { }
 
   ngOnInit() {

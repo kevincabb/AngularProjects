@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <app-side [menu]="accountMenu"></app-side>
+            <app-side [menu]="category" [title]="showTitle"></app-side>
         </div>
     </div>
+    <router-outlet></router-outlet>
 </div>

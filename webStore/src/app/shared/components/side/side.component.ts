@@ -7,7 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SideComponent implements OnInit {
   @Input()
-  menu
+  public menu
+
+  @Input()
+  public title
+  
   constructor() { }
 
   ngOnInit() {
