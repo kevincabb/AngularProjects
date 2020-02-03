@@ -16,8 +16,7 @@
             <div class="col">
                 <ul class="list-group ">
                     <li class="list-group-item" *ngFor="let item of menu">
-                        <a class="nav-link tan-color page-text" routerLink="{{item.route}}"
-                            routerLinkActive="active">{{item.name}}</a>
+                        <a class="tan-color page-text" (click)="productFilter(item)">{{item.name}}</a>
                     </li>
                 </ul>
             </div>

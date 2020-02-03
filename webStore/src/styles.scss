@@ -19,6 +19,8 @@ p{
 
 }
 
+a { cursor: pointer; }
+
 .tan-color{
     color: #F0EAEA;
 }
@@ -45,6 +47,10 @@ p{
 
 .light-border{
     border: 2px solid #F0EAEA;
+}
+
+.black-border{
+    border: 2px solid black;
 }
 
 .bGb{

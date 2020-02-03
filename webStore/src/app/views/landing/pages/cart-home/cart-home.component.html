@@ -8,34 +8,34 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
         <div class="row">
             <div class="col pb-3">
-                <app-panel></app-panel>
+                <app-panel [products]="cartProducts" [button]="add" [page]="cartPage"></app-panel>
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6 pb-3 pb-md-0">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <h3>Summary</h3>
+                <h3 class="tan-color page-text">Summary</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-6">Subtotal:</div>
-            <div class="col-6">-</div>
+            <div class="col-6 tan-color page-text">Subtotal:</div>
+            <div class="col-6 tan-color page-text">${{cartTotal}}</div>
         </div>
         <div class="row">
-            <div class="col-6">Estimated shipping:</div>
-            <div class="col-6">-</div>
+            <div class="col-6 tan-color page-text">Estimated shipping:</div>
+            <div class="col-6 tan-color page-text">-</div>
         </div>
         <div class="row">
-            <div class="col-6">Estimated tax:</div>
-            <div class="col-6">-</div>
+            <div class="col-6 tan-color page-text">Estimated tax:</div>
+            <div class="col-6 tan-color page-text">-</div>
         </div>
         <div class="row">
-            <div class="col-6">Total:</div>
-            <div class="col-6">-</div>
+            <div class="col-6 tan-color page-text">Total:</div>
+            <div class="col-6 tan-color page-text">${{cartTotal}}</div>
         </div>
         <div class="row pt-2">
             <div class="col d-flex justify-content-center">

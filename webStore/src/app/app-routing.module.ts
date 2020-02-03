@@ -18,7 +18,7 @@ import { CartConfirmComponent } from './views/landing/pages/cart-confirm/cart-co
 
 
 const routes: Routes = [
-  {path: 'app-home', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'app-about', component: AboutComponent},
   {path: 'app-contact', component: ContactComponent},
   {
@@ -40,7 +40,6 @@ const routes: Routes = [
   {path: 'app-cart', component: CartComponent, 
   children:[
     {path: '', component: CartHomeComponent},
-    {path: 'app-cart-home', component: CartHomeComponent},
     {path: 'app-cart-checkout', component: CartCheckoutComponent},
     {path: 'app-cart-confirm', component: CartConfirmComponent}
   ]},

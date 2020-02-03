@@ -2,7 +2,33 @@
     <div class="row pt-3">
         <div class="col light-border">
             <p-scrollPanel [style]="{width: '100%', height: '52vh'}">
-               
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 d-flex justify-content-center pt-3"
+                            *ngFor="let product of products, let i =index">
+                            <div class="card black-border" style="width: 13rem;">
+                                <img src={{product.img}} class="card-img-top" alt="...">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <app-modal [add]="button" [product]="product"></app-modal>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="page" class="row">
+                                                <div class="col d-flex justify-content-center">
+                                                    <a class="item-remove text-danger"
+                                                        (click)="removeFromCart(product, i)"> Remove</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </p-scrollPanel>
         </div>
     </div>

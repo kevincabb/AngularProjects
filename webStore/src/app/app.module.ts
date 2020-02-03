@@ -33,6 +33,8 @@ import { CartCheckoutComponent } from './views/landing/pages/cart-checkout/cart-
 import { CartPlaceComponent } from './views/landing/pages/cart-place/cart-place.component';
 import { CartHomeComponent } from './views/landing/pages/cart-home/cart-home.component';
 import { CartConfirmComponent } from './views/landing/pages/cart-confirm/cart-confirm.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
+import { ModalLoginComponent } from './shared/components/modal-login/modal-login.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { CartConfirmComponent } from './views/landing/pages/cart-confirm/cart-co
     CartPlaceComponent,
     CartHomeComponent,
     CartConfirmComponent,
+    ModalComponent,
+    ModalLoginComponent,
   ],
   imports: [
     BrowserModule,

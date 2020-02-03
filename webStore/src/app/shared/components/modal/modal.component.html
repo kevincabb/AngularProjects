@@ -1,0 +1,38 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{product.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <img src={{product.img}}>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label class="page-text" for="price">Price: ${{product.price}}</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div *ngIf="!product.sold">
+            <button type="button" class="btn btn-primary" (click)="addToCart(product)"
+                (click)="modal.dismiss('Add to cart')">Add to cart</button>
+        </div>
+        <div *ngIf="product.sold">
+            <button type="button" class="btn btn-primary" disabled="true">IN CART</button>
+        </div>
+    </div>
+</ng-template>
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <a class="page-text underline" (click)="open(content)">{{add}}</a>
+    </div>
+</div>

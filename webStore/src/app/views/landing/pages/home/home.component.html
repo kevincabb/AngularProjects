@@ -4,14 +4,25 @@
             <app-title [header]="titleName"></app-title>
         </div>
     </div>
-    <div class="row">
-        <div class="col-2">
+    <div class="row d-flex justify-content-between">
+        <div class="col-2 pt-3">
             <app-side [menu]="category" [title]="showTitle"></app-side>
+        </div>
+        <div class="col-5 col-md-3">
+            <div class="row d-flex flex-nowrap">
+                <div class="col">
+                    <a class="nav-link tan-color page-text d-flex justify-content-end mt-2" href="">HIGH</a>
+                </div>
+                <h2 class="d-flex align-self-center page-text d-none d-lg-block tan-color m-0">|</h2>
+                <div class="col ">
+                    <a class="nav-link tan-color page-text d-flex justify-content-start mt-2 pb-2" href="">LOW</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <app-panel ></app-panel>
+            <app-panel [products]="productList" [button]="add"></app-panel>
         </div>
     </div>
 </div>

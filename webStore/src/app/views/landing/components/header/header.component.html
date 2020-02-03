@@ -11,7 +11,7 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col-8">
                             <div class="navbar-nav">
-                                <a class="nav-link black-text page-text" routerLink="/app-home"
+                                <a class="nav-link black-text page-text" routerLink="/home"
                                     routerLinkActive="active">HOME</a>
                                 <a class="nav-link black-text page-text" routerLink="/app-about"
                                     routerLinkActive="active">ABOUT</a>
@@ -28,17 +28,34 @@
         <div class="col-5 col-md-3">
             <div class="row d-flex flex-nowrap">
                 <div class="col">
-                    <a class="nav-link black-text page-text d-flex justify-content-end mt-2" href=""
-                        routerLinkActive="active">LOGIN</a>
+                    <a class="nav-link black-text page-text d-flex justify-content-end mt-2">
+                        <app-modal-login></app-modal-login>
+                    </a>
                 </div>
                 <h2 class="d-flex align-self-center page-text d-none d-lg-block black-text m-0">|</h2>
                 <div class="col ">
-                    <a class="nav-link black-text page-text d-flex justify-content-start mt-2 pb-2" routerLink="/app-cart"
-                        routerLinkActive="active">
-                        <i class="fas fa-shopping-cart"></i>
+                    <a class="nav-link black-text page-text d-flex justify-content-start mt-2 pb-2" (click)="toggleList()">
+                        <i class="fas fa-shopping-cart pr-1"></i>
+                        <span class="badge badge-info">{{cartCount}}</span>
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="showList">
+    <div class="shopping-cart">
+        <div class="shopping-cart-header">
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge badge-info">{{cartCount}}</span>
+            <div class="shopping-cart-total">
+                <span>Total:</span>
+                <span>${{cartTotal}}</span>
+            </div>
+        </div>
+        <div *ngIf="cartItems.length == 0" class="py-2">
+            No items in your cart!
+        </div>
+        <a routerLink="/app-cart/" class="btn btn-primary btn-block" >Checkout</a>
     </div>
 </div>
