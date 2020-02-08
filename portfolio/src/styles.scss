@@ -1,0 +1,244 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Volkhov&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+#hero-1{
+    background: url(/images/simon-abrams-k_T9Zj3SE8k-unsplash.jpg) no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    width: 100%;
+}
+
+.background{
+    background-color: rgba(150, 127, 84, 0.932);
+}
+
+.container {
+    padding: 0 100px 0 100px;
+}
+
+nav ul,
+.main,
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+// .navbar {
+//     background-color: #181818;
+// }
+
+header h1,
+header a,
+.text p,
+.about h1,
+.skills h1,
+.projects h1,
+.contact h1 {
+    color: #707070;
+}
+
+li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+// a {
+//     text-decoration: none;
+//     font-size: .9rem;
+//     text-transform: uppercase;
+//     position: relative;
+//     top: 50%;
+//     bottom: 50%;
+//     transform: translate(-50%);
+// }
+
+.main {
+    height: calc(100vh - 81.6px);
+}
+
+.text {
+    margin-top: 120px;
+}
+
+.text h1 {
+    color: #fff;
+    font-size: 3rem;
+    cursor: context-menu;
+}
+
+.text span {
+    display: inline-block;
+}
+
+span:hover {
+    color: rgb(230, 113, 84);
+    transition: all .5s;
+}
+
+span.name{
+    color: #cfb86c;
+}
+
+// span.m-left {
+//     margin-left: -10px;
+// }
+
+.text p {
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    font-size: .8rem;
+}
+
+.text a {
+    padding: 12px 25px;
+    background-color: none;
+    border: 3px solid #ed5565;
+    color: #ed5565;
+    font-size: .8rem;
+    letter-spacing: 2px;
+    position: relative;
+    top: 80px;
+    overflow: hidden;
+    transition: .5s;
+    display: inline-block;
+}
+
+.text a:hover {
+    color: #fff;
+}
+
+.text a::before {
+    content: '';
+    background-color: #ed5565;
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+}
+
+.text a:hover::before {
+    height: 100%;
+}
+
+.logo img {
+    width: 250px;
+    margin-top: 50px;
+}
+
+.about {
+    // height: 100vh;
+    // margin-top: 100px;
+}
+
+.about h1,
+.projects h1 {
+    font-size: 6rem;
+    z-index: 0;
+    opacity: .3;
+}
+
+.about-info {
+    max-width: 900px;
+    background-color: #252627;
+    box-shadow: 0 0 1.2rem rgb(0, 0, 0,.25);
+    padding: 35px;
+    position: relative;
+    top: -40px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+a,.about-info p,
+.skills-info p {
+    font-size: 1.3rem;
+    color: #bebebe;
+}
+
+.about-info p:nth-child(2),
+.about-info p:last-child {
+    margin-top: 30px;
+}
+
+.skills {
+    height: 100vh;
+}
+
+.skills h1,
+.contact h1 {
+    text-align: start;
+    font-size: 6rem;
+    opacity: .5;
+}
+
+.html {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contact {
+    margin-top: 50px;
+}
+
+form input,
+form textarea {
+    display: block;
+    width: 500px;
+    padding: 20px;
+    background-color: #252627;
+    border: 3px solid #707070;
+    margin: 20px 0px;
+    outline: none;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    top: -50px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+}
+
+form input:last-child {
+    width: 150px;
+    background-color: #ed5565;
+    border: none;
+    cursor: pointer;
+}
+
+footer hr {
+    border: 2px solid #707070;
+    margin-top: 80px;
+}
+
+footer p {
+    text-align: center;
+    color: #707070;
+    font-size: 1.2rem;
+}
+
+.page-text{
+    font-family: 'Volkhov', serif;
+}

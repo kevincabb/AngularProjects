@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side',
@@ -9,29 +8,20 @@ import { DataService } from '../../services/data.service';
 export class SideComponent implements OnInit {
   @Input()public menu;
   @Input()public title;
+  @Output() public filterEvent = new EventEmitter();
 
-  filter: string;
+  public display;
+  
 
 
   
-  constructor(private dService: DataService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.filter = this.dService.getFilter();
   }
 
-  productFilter(item){
-    if(item.name === "APPAREL"){
-      this.filter = "apparel";
-    }
-    else if(item.name === "SHOES"){
-      this.filter = "shoes";
-    }
-    else if(item.name === "MISC"){
-      this.filter = "misc";
-    } else {
-      this.filter = "all";
-    }
+  sendFilter(item){
+    this.filterEvent.emit(item.name.toLowerCase());
   }
   
 

@@ -6,21 +6,33 @@
         </button>
     </div>
     <div class="modal-body">
-        <form>
+        <form [formGroup]="userForm">
             <div class="form-group">
                 <label for="dateOfBirth">Email</label>
                 <div class="input-group">
-                    <input id="email" class="form-control" placeholder="example@email.com">
+                    <input #em type="text" id="email" formControlName="email" class="form-control"
+                        placeholder="example@email.com" aria-label="email" aria-describedby="basic-addon1">
                 </div>
-                <label class="pt-2" for="dateOfBirth">Password</label>
+                <label class="pt-2" for="password">Password</label>
                 <div class="input-group">
-                    <input id="password" class="form-control" placeholder="Password">
+                    <input #pw type="password" id="password" formControlName="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="row pt-3 pb-0">
+                    <div class="col d-flex justify-content-center">
+                        <a>
+                            <app-modal-signup></app-modal-signup>
+                        </a>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Sign in</button>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" [disabled]="!userForm.valid" (click)="modal.close('Save click')" (click)="logIn(em.value, pw.value)">Sign in</button>
+            </div>
+        </div>
     </div>
 </ng-template>
 

@@ -9,10 +9,11 @@ import { DataService } from 'src/app/shared/services/data.service';
 })
 export class HomeComponent implements OnInit {
   public productList: items[];
-  public filter: string;
   public add = "Description";
   public titleName = "CABS.CLOSET";
   public showTitle = true;
+  public sortN;
+  public type;
   public category = [
     {
       name: "APPAREL"
@@ -34,13 +35,13 @@ export class HomeComponent implements OnInit {
       this.productList = items;
     });
     
-    this.dService.$filter.subscribe(string => {
-      this.filter = string;
-    });
-
     this.productList = this.dService.getProducts();
   }
 
+  sort(item){
+    this.sortN = item;
+    console.log(this.sortN);
+  }
   
 
 }

@@ -1,0 +1,28 @@
+<p-sidebar [(visible)]="display" styleClass="ui-sidebar-sm">
+    <div class="container">
+        <div *ngIf="title" class="ng-hide">
+            <div class="row">
+                <div class="col p-0 ">
+                    <h4 class="page-text m-0">TYPE</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="m-0 pb-2" style="width: 4rem">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list-group ">
+                    <li class="list-group-item" *ngFor="let item of menu">
+                        <a class="tan-color page-text" routerLink="{{item.route}}">{{item.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</p-sidebar>
+
+<button class="darkGray page-text" type="text" (click)="display = true" pButton icon="pi pi-plus"
+    label="Show">CATEGORIES</button>

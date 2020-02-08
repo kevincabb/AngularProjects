@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { AccountService } from '../../services/account.service';
+import { Profiles } from '../../interfaces/profiles';
 
 @Component({
   selector: 'app-modal-login',
@@ -7,10 +10,27 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal-login.component.scss']
 })
 export class ModalLoginComponent implements OnInit {
+  accountInfo: Profiles[] = []
+  userForm: FormGroup;
   closeResult: string;
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private account: AccountService) {
+    account.setUserList();
+  }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    
+  }
+
+  logIn(email: string, password: string){
+    if(this.account.checkCred(email, password)){
+      alert('You are logged in');
+    } else {
+      alert('Try again');
+    }
   }
 
   open(content) {

@@ -1,0 +1,28 @@
+.skills-info {
+    max-width: 900px;
+    background-color: #252627;
+    box-shadow: 0 0 1.2rem rgb(0, 0, 0,.25);
+    padding: 15px;
+    position: relative;
+    top: -40px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.img-size{
+    width: 128px;
+    height: 128px;
+}
+
+@media screen and (max-width: 600px) {
+    .skills-info{
+        min-width: 250px;
+    }
+
+    .img-size{
+        width: 64px;
+        height: 64px;
+    }
+  }

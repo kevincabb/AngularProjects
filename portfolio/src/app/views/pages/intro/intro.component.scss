@@ -1,0 +1,17 @@
+.opacity{
+    opacity: .7;
+}
+
+.black{
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+    p {
+      font-size: 12px;
+    }
+
+    .about-info{
+        width: 250px;
+    }
+  }

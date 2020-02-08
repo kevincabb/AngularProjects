@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './views/landing/landing.component';
@@ -35,6 +36,12 @@ import { CartHomeComponent } from './views/landing/pages/cart-home/cart-home.com
 import { CartConfirmComponent } from './views/landing/pages/cart-confirm/cart-confirm.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { ModalLoginComponent } from './shared/components/modal-login/modal-login.component';
+import { FilterPipe } from './shared/pipe/filter.pipe';
+import { SideSettingsComponent } from './shared/components/side-settings/side-settings.component';
+import { ModalSignupComponent } from './shared/components/modal-signup/modal-signup.component';
+import { from } from 'rxjs';
+import { PriceFilterPipe } from './shared/pipe/price-filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +72,10 @@ import { ModalLoginComponent } from './shared/components/modal-login/modal-login
     CartConfirmComponent,
     ModalComponent,
     ModalLoginComponent,
+    FilterPipe,
+    SideSettingsComponent,
+    ModalSignupComponent,
+    PriceFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -72,7 +83,9 @@ import { ModalLoginComponent } from './shared/components/modal-login/modal-login
     NgbModule,
     BrowserAnimationsModule,
     SidebarModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,14 +6,16 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.scss']
+  styleUrls: ['./panel.component.scss'],
 })
 export class PanelComponent implements OnInit {
   cartItems: items[];
   filter: string;
-  @Input() products: items;
+  @Input() products;
   @Input() button;
   @Input() page;
+  @Input() sort;
+  @Input() fil: string = "all";
   
   constructor(private dService: DataService, private cartService: CartService) { }
 
@@ -22,11 +24,6 @@ export class PanelComponent implements OnInit {
       this.cartItems = items;
     });
     
-    this.dService.$filter.subscribe(string => {
-      this.filter = string;
-    });
-
-    this.filter = this.dService.getFilter();
   }
 
   getCartItems(){
@@ -36,6 +33,10 @@ export class PanelComponent implements OnInit {
   removeFromCart(item, index){
     this.cartService.removeProduct(item, index);
     item.sold = false;
+  }
+
+  getFil(item){
+    console.log(item);
   }
 
   
