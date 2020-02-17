@@ -11,13 +11,13 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col-8">
                             <div class="navbar-nav">
-                                <a class="nav-link black-text page-text" routerLink="/home"
+                                <a class="nav-link black-text page-text" routerLink="./home"
                                     routerLinkActive="active">HOME</a>
-                                <a class="nav-link black-text page-text" routerLink="/app-about"
+                                <a class="nav-link black-text page-text" routerLink="./app-about"
                                     routerLinkActive="active">ABOUT</a>
-                                <a class="nav-link black-text page-text" routerLink="/app-contact"
+                                <a class="nav-link black-text page-text" routerLink="./app-contact"
                                     routerLinkActive="active">CONTACT</a>
-                                <a class="nav-link black-text page-text" routerLink="/app-account"
+                                <a class="nav-link black-text page-text" routerLink="./app-account"
                                     routerLinkActive="active">ACCOUNT</a>
                             </div>
                         </div>
@@ -56,6 +56,6 @@
         <div *ngIf="cartItems.length == 0" class="py-2">
             No items in your cart!
         </div>
-        <a routerLink="/app-cart/" class="btn btn-primary btn-block" >Checkout</a>
+        <a routerLink="./app-cart/" class="btn btn-primary btn-block" >Checkout</a>
     </div>
 </div>

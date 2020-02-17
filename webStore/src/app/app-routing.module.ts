@@ -44,7 +44,7 @@ const routes: Routes = [
     {path: 'app-cart-confirm', component: CartConfirmComponent}
   ]},
   {path: '', component: HomeComponent},
-  {path: '**', redirectTo: "/app-home"}
+  {path: '**', redirectTo: "./app-home"}
 ];
 
 @NgModule({
