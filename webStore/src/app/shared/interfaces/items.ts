@@ -1,5 +1,5 @@
 export interface items {
-    img: string
+    img: string;
     id: string;
     name: string;
     type: string;

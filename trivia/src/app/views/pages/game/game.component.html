@@ -1,0 +1,82 @@
+<div id="hero-4" class="container-fluid px-5" >
+    <div class="row d-flex justify-content-between pt-3">
+        <div class="col-4">
+            <button id="backMoBtn" type="button" class="btn btn-danger btn-lg border-dark button-size"
+                routerLink="/app-menu">MENU</button>
+        </div>
+        <div class="col-4 grey-background score-style border border-dark rounded ml-4 mr-3">
+            <h2 #score class="text-color score-text mb-3 mt-3 pl-0">Score: {{scoreCount}}</h2>
+        </div>
+
+    </div>
+    <div class="row d-flex justify-content-center text-center  pt-5">
+        <div
+            class="col-12 d-flex justify-content-center align-self-center grey-background border border-dark rounded title-border1">
+            <h1 class="text-color mb-0">QUESTION</h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center text-center row-height pt-3 mx-0">
+        <div
+            class="col-8 d-flex justify-content-center align-self-center grey-background border border-dark rounded questions-box">
+            <h2 #q class="d-flex align-self-center text-color question-text mb-0">{{twentyQ[qNum].q}}</h2>
+        </div>
+    </div>
+    <div class="container con2-height">
+        <div class="row d-flex justify-content-center py-3">
+            <div
+                class="col-6 d-flex align-self-center grey-background score-style border border-dark rounded ml-4 mr-3">
+                <h2 #bonus  class="text-color score-text mb-3 mt-3 pl-0">Bonus: {{cheat}}</h2>
+            </div>
+            <div
+                class="col-6 d-flex align-self-center grey-background score-style border border-dark rounded ml-4 mr-3">
+                <h2 #timer  class="text-color score-text mb-3 mt-3 pl-0">Timer: {{triviaTimer}} </h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center justify-content-lg-between pt-3 pb-2 mx-0">
+            <div
+                class="col-12 col-md-6 d-flex justify-content-lg-start grey-background border border-dark rounded  questions-box">
+                <button #aBtn type="button"
+                    class="answerBtn d-flex justify-content-center btn btn-danger answerBtn answer-text my-2 mt-md-2"
+                    [disabled]="aDisabled" (click)="checkAnswer(aBtn.innerHTML)">{{twentyQ[qNum].a1}}</button>
+            </div>
+            <div
+                class="col-12 col-md-6 d-flex justify-content-lg-start align-self-center grey-background border border-dark rounded  questions-box mt-3 mt-lg-0">
+                <button #bBtn  type="button"
+                    class="answerBtn d-flex justify-content-center btn btn-danger answerBtn answer-text my-2 mt-md-2"
+                    [disabled]="bDisabled" (click)="checkAnswer(bBtn.innerHTML)">{{twentyQ[qNum].a2}}</button>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center justify-content-lg-between pt-3 mx-0">
+            <div
+                class="col-12 col-md-6 d-flex justify-content-lg-start grey-background border border-dark rounded questions-box">
+                <button #cBtn  type="button"
+                    class="answerBtn d-flex justify-content-center btn btn-danger answerBtn answer-text my-2 mt-md-2"
+                    [disabled]="cDisabled" (click)="checkAnswer(cBtn.innerHTML)">{{twentyQ[qNum].a3}}</button>
+            </div>
+            <div
+                class="col-12 col-md-6 d-flex justify-content-lg-start align-self-center grey-background border border-dark rounded  questions-box mt-3 mt-lg-0">
+                <button #dBtn type="button"
+                    class="answerBtn d-flex justify-content-center btn btn-danger answerBtn answer-text my-2 mt-md-2"
+                    [disabled]="dDisabled" (click)="checkAnswer(dBtn.innerHTML)">{{twentyQ[qNum].a4}}</button>
+            </div>
+            <div class="row d-flex justify-content-center pt-3 mx-0">
+                <div class="col-12 d-flex justify-content-center">
+
+                    <div *ngIf="showResult; then thenBlock; else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <button #nextBtn id="nBtn" type="button"
+                            class="d-flex justify-content-center btn btn-danger button-size mt-2" [disabled]="nDisabled"
+                            routerLink="/app-results">NEXT
+                        </button>
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <button #nextBtn id="nBtn" type="button"
+                            class="d-flex justify-content-center btn btn-danger button-size mt-2"
+                            (click)='setTriviaTimer()' (click)='nextQ()' (click)='checkTime()' [disabled]="nDisabled">NEXT
+                        </button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

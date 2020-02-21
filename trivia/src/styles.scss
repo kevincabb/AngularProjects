@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+#hero-1{
+    background: url(./assets/splash.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#hero-2{
+    background: url(./assets/menu.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#hero-3{
+    background: url(./assets/options.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#hero-4{
+    background: url(./assets/game.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#hero-5{
+    background: url(./assets/results.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.text-color{
+    color: #B21D34;
+}
+.text-color2{
+    color: white;
+}
+
+.question-text{
+    font-size: 20px;
+}
+
+.answer-text{
+    font-size: 18px;
+}
+
+.grey-background{
+    background-color: #AFA1A1;
+}
+
+.title-border1{
+    max-width: 269px;
+    max-height: 85px;
+}
+
+.con2-height{
+    height: 376px;
+}
+
+.con3-height{
+    height: 376px;
+}
+
+.button-size{
+    width: 110px;
+}
+
+.score-style{
+    max-width: 130px;
+}
+
+.score-text{
+    font-size: 22px;
+}
+
+.row-height{
+    height: 65px;
+}
+
+.row2-height{
+    height: 100px;
+}
+.questions-box{
+    max-width: 500px;
+    height: 50px;
+}
+
+.answerBtn{
+    width: 468px;
+}
+
