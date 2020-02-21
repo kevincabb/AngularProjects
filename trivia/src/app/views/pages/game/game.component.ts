@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
   bDisabled = false;
   cDisabled = false;
   dDisabled = false;
-  nDisabled = false;
+  nDisabled = true;
 
   
   
@@ -34,13 +34,20 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(){
+    this.dservice.$difficulty.subscribe(difficulty=> {
+      this.difficulty = difficulty;
+    });
+    console.log(this.difficulty);
+    
     this.questions = this.dservice.getQuestions();
-    this.difficulty = this.dservice.getDifficulty();
     this.twentyQuestions();
     this.setTriviaTimer();
     this.startCountDown();
   }
 
+  changeScore(scoreCount, number){
+    this.dservice.changeScore(scoreCount, number);
+  }
   twentyQuestions() {
     let totalQuestions = 20;
     for (let i = 0; i < totalQuestions; i++) {
@@ -59,10 +66,10 @@ export class GameComponent implements OnInit {
 
 
   setTriviaTimer() {
-    if (this.difficulty == "easy") {
+    if (this.difficulty == "EASY") {
       this.triviaTimer = 15;
     }
-    else if (this.difficulty == "medium") {
+    else if (this.difficulty == "MEDIUM") {
       this.triviaTimer = 10;
     }
     else {

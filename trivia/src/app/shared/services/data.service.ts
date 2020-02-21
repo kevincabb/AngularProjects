@@ -6,7 +6,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  difficulty: string = "easy";
+  difficulty: string = "EASY";
+  score: number = 0;
+  correct: number = 0;
   questions: Question[] = [
     {
       "q": "How many NBA teams are currently in the NBA?",
@@ -411,6 +413,8 @@ export class DataService {
   ];
 
   $difficulty = new BehaviorSubject<string>(this.difficulty);
+  $score = new BehaviorSubject<number>(this.score);
+  $correct = new BehaviorSubject<number>(this.correct);
 
   constructor() { }
 
@@ -419,5 +423,24 @@ export class DataService {
   }
   getDifficulty(){
     return this.difficulty;
+  }
+
+  getScore(){
+    return this.score;
+  }
+  getCorrect(){
+    return this.correct;
+  }
+
+  changeDiff(value){
+    this.difficulty = value.innerHTML;
+    this.$difficulty.next(this.difficulty);
+  }
+
+  changeScore(value, number){
+    this.score = value;
+    this.correct = number;
+    this.$score.next(this.score);
+    this.$correct.next(this.correct);
   }
 }

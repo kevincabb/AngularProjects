@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-options',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit {
-
-  constructor() { }
+  difficulty: string;
+  constructor(private dservice: DataService) { }
 
   ngOnInit() {
+    this.dservice.$difficulty.subscribe(difficulty=> {
+      this.difficulty = difficulty;
+    });
   }
 
+  changeDiff(value){
+    this.dservice.changeDiff(value);
+  }
 }
