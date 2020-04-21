@@ -19,6 +19,59 @@ namespace Inventoryapi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Inventoryapi.Models.PurchaseOrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("InventoryItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PurchaseOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PurchaseOrderId");
+
+                    b.ToTable("PurchaseOrderItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            InventoryItemId = 1,
+                            PurchaseOrderId = 1,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            InventoryItemId = 3,
+                            PurchaseOrderId = 1,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            InventoryItemId = 1,
+                            PurchaseOrderId = 2,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            InventoryItemId = 4,
+                            PurchaseOrderId = 2,
+                            Quantity = 2
+                        });
+                });
+
             modelBuilder.Entity("MyStore.Models.InventoryItem", b =>
                 {
                     b.Property<int>("Id")
@@ -183,27 +236,22 @@ namespace Inventoryapi.Migrations
                     b.Property<DateTime>("Datetime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InventoryItemId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NameOfBuyer")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PaymentTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.Property<double>("SalesTax")
                         .HasColumnType("float");
+
+                    b.Property<string>("StripeSessionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Subtotal")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("InventoryItemId");
 
                     b.HasIndex("PaymentTypeId");
 
@@ -213,35 +261,34 @@ namespace Inventoryapi.Migrations
                         new
                         {
                             Id = 1,
-                            Datetime = new DateTime(2020, 3, 8, 11, 59, 0, 393, DateTimeKind.Local).AddTicks(250),
-                            InventoryItemId = 1,
+                            Datetime = new DateTime(2020, 3, 17, 16, 9, 37, 440, DateTimeKind.Local).AddTicks(5670),
                             NameOfBuyer = "John Doe",
                             PaymentTypeId = 1,
-                            Quantity = 2,
-                            SalesTax = 0.25,
-                            Subtotal = 1.0
+                            SalesTax = 0.45000000000000001,
+                            Subtotal = 5.5
                         },
                         new
                         {
                             Id = 2,
-                            Datetime = new DateTime(2020, 3, 7, 11, 59, 0, 393, DateTimeKind.Local).AddTicks(3510),
-                            InventoryItemId = 3,
+                            Datetime = new DateTime(2020, 3, 16, 16, 9, 37, 440, DateTimeKind.Local).AddTicks(8140),
                             NameOfBuyer = "Mildred Smith",
                             PaymentTypeId = 3,
-                            Quantity = 4,
-                            SalesTax = 4.5,
-                            Subtotal = 18.0
+                            SalesTax = 6.3499999999999996,
+                            Subtotal = 98.5
                         });
+                });
+
+            modelBuilder.Entity("Inventoryapi.Models.PurchaseOrderItem", b =>
+                {
+                    b.HasOne("MyStore.Models.PurchaseOrder", null)
+                        .WithMany("PurchaseOrderItems")
+                        .HasForeignKey("PurchaseOrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MyStore.Models.PurchaseOrder", b =>
                 {
-                    b.HasOne("MyStore.Models.InventoryItem", "Item")
-                        .WithMany()
-                        .HasForeignKey("InventoryItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MyStore.Models.PaymentType", "PaymentType")
                         .WithMany()
                         .HasForeignKey("PaymentTypeId")

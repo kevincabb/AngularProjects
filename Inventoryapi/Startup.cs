@@ -15,6 +15,8 @@ using InventoryApi.Services;
 using LiteDB;
 using Inventoryapi.Services;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
+using Stripe.Checkout;
 
 namespace Inventoryapi
 {
@@ -30,6 +32,8 @@ namespace Inventoryapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe").GetValue("ApiKey", "");
+            
             services.AddControllers();
             services.AddScoped<InventoryLiteDbService>();
             services.AddSingleton<InventoryServices>();
@@ -38,11 +42,26 @@ namespace Inventoryapi
 
             services
                 .AddScoped<InventoryLiteDbService>()
-                .AddScoped<DataService>();
+                .AddScoped<DataService>()
+                .AddScoped<StripeHelperService>();
+            
+
+            services
+                .AddTransient<SessionService>();
 
 
             var connString = Configuration.GetConnectionString("MyDatabase");
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                builder => builder.WithOrigins("http://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials()
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +77,8 @@ namespace Inventoryapi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {

@@ -31,11 +31,12 @@ export class HomeComponent implements OnInit {
   constructor(private dService: DataService) { }
 
   ngOnInit() {
-    this.dService.$products.subscribe(items => {
-      this.productList = items;
-    });
+    // this.dService.getInventory().subscribe(items => {
+    //   console.log(items);
+    // });
     
     this.productList = this.dService.getProducts();
+    console.log(this.productList);
   }
 
   sort(item){

@@ -1,73 +1,31 @@
 import { Injectable } from '@angular/core';
 import { items } from '../interfaces/items';
 import { Observable, of, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  url = 'http://localhost:5000/inventory'
+  urlSheet;
   filter: string = "all";
-  products: items[] = [
-    {
-      img: "../../../assets/images/hoody.png",
-      id: "1",
-      name: "hoodie",
-      type: "apparel",
-      price: 200,
-      quantity: 0,
-      sold: false
-    },
-    {
-      img: "../../../assets/images/slippers.png",
-      id: "2",
-      name: "slippers",
-      type: "shoes",
-      price: 100,
-      quantity: 0,
-      sold: false
-    },
-    {
-      img: "../../../assets/images/watch.png",
-      id: "3",
-      name: "watch",
-      type: "misc",
-      price: 150,
-      quantity: 0,
-      sold: false
-    },
-    {
-      img: "../../../assets/images/hoody.png",
-      id: "4",
-      name: "Sweater",
-      type: "apparel",
-      price: 100,
-      quantity: 0,
-      sold: false
-    },
-    {
-      img: "../../../assets/images/slippers.png",
-      id: "5",
-      name: "Camo Slides",
-      type: "shoes",
-      price: 50,
-      quantity: 0,
-      sold: false
-    },
-    {
-      img: "../../../assets/images/watch.png",
-      id: "6",
-      name: "Replica Watch",
-      type: "misc",
-      price: 20,
-      quantity: 0,
-      sold: false
-    }
-  ];
+  products: items[] = [];
 
   $products = new BehaviorSubject<items[]>(this.products);
   $filter = new BehaviorSubject<string>(this.filter);
   
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.getInventory();
+   }
+
+  getInventory(){
+    this.urlSheet = this.http.get(this.url);
+
+    this.urlSheet.subscribe(x => {
+      this.products.push(x);
+    });
+  }
 
   getProducts(): items[] {
     return this.products;

@@ -41,6 +41,7 @@ import { SideSettingsComponent } from './shared/components/side-settings/side-se
 import { ModalSignupComponent } from './shared/components/modal-signup/modal-signup.component';
 import { from } from 'rxjs';
 import { PriceFilterPipe } from './shared/pipe/price-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { PriceFilterPipe } from './shared/pipe/price-filter.pipe';
     SidebarModule,
     ScrollPanelModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -40,10 +40,15 @@ namespace Inventoryapi.Services
             return _context.SaveChanges() != 0;
         }
 
+        public async System.Threading.Tasks.Task<int> InsertPurchaseOrderAsync(PurchaseOrder order){
+            var trackedItem = _context.Add(order);
+            await _context.SaveChangesAsync();
+            return trackedItem.Entity.Id;
+        }
+
         public IEnumerable<PurchaseOrder> GetPurchaseOrders()
         {
             return _context.PurchaseOrders
-                .Include(x => x.Item)
                 .Include(x => x.PaymentType);
         }
 

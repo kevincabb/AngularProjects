@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Inventoryapi.Models;
 using Microsoft.EntityFrameworkCore;
 using MyStore.Models;
 
@@ -8,6 +9,7 @@ namespace Inventoryapi.Services {
         public DbSet<InventoryItem> InventoryItems { get; set; }
         public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
+        public DbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
 
         public DataContext (DbContextOptions<DataContext> options) : base (options) { }
 
@@ -58,26 +60,51 @@ namespace Inventoryapi.Services {
             var orders = new List<PurchaseOrder> {
                 new PurchaseOrder () {
                 Id = 1,
-                InventoryItemId = 1,
-                Quantity = 2,
                 Datetime = DateTime.Now.AddDays (-1),
-                Subtotal = 1,
-                SalesTax = .25,
+                Subtotal = 5.5,
+                SalesTax = .45,
                 PaymentTypeId = 1,
                 NameOfBuyer = "John Doe"
                 },
                 new PurchaseOrder () {
                 Id = 2,
-                InventoryItemId = 3,
-                Quantity = 4,
                 Datetime = DateTime.Now.AddDays (-2),
-                Subtotal = 18,
-                SalesTax = 4.5,
+                Subtotal = 98.5,
+                SalesTax = 6.35,
                 PaymentTypeId = 3,
                 NameOfBuyer = "Mildred Smith"
                 }
             };
             builder.Entity<PurchaseOrder> ().HasData (orders);
+
+            // Mock the Item list for the purchase orders above
+            var orderItems = new List<PurchaseOrderItem> {
+                new PurchaseOrderItem () {
+                Id = 1,
+                InventoryItemId = 1,
+                PurchaseOrderId = 1,
+                Quantity = 2
+                },
+                new PurchaseOrderItem () {
+                Id = 2,
+                InventoryItemId = 3,
+                PurchaseOrderId = 1,
+                Quantity = 1
+                },
+                new PurchaseOrderItem () {
+                Id = 3,
+                InventoryItemId = 1,
+                PurchaseOrderId = 2,
+                Quantity = 1
+                },
+                new PurchaseOrderItem () {
+                Id = 4,
+                InventoryItemId = 4,
+                PurchaseOrderId = 2,
+                Quantity = 2
+                }
+            };
+            builder.Entity<PurchaseOrderItem> ().HasData (orderItems);
         }
 
     }

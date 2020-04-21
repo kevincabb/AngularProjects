@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-3 d-flex justify-content-center pt-3"
-                            *ngFor="let product of products | filter:fil | priceFilter:sort, let i =index ">
+                            *ngFor="let product of products[0] | filter:fil | priceFilter:sort, let i =index ">
                             <div class="card black-border" style="width: 13rem;">
                                 <img src={{product.img}} class="card-img-top" alt="...">
                                 <div class="row">
